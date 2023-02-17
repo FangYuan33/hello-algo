@@ -17,7 +17,7 @@ pub fn ArrayQueue(comptime T: type) type {
         mem_arena: ?std.heap.ArenaAllocator = null,
         mem_allocator: std.mem.Allocator = undefined,   // 内存分配器
 
-        // 构造函数（分配内存+初始化数组）
+        // 构造方法（分配内存+初始化数组）
         pub fn init(self: *Self, allocator: std.mem.Allocator, cap: usize) !void {
             if (self.mem_arena == null) {
                 self.mem_arena = std.heap.ArenaAllocator.init(allocator);
@@ -28,7 +28,7 @@ pub fn ArrayQueue(comptime T: type) type {
             std.mem.set(T, self.nums, @as(T, 0));
         }
         
-        // 析构函数（释放内存）
+        // 析构方法（释放内存）
         pub fn deinit(self: *Self) void {
             if (self.mem_arena == null) return;
             self.mem_arena.?.deinit();
@@ -58,7 +58,7 @@ pub fn ArrayQueue(comptime T: type) type {
             // 计算尾指针，指向队尾索引 + 1
             // 通过取余操作，实现 rear 越过数组尾部后回到头部
             var rear = (self.front + self.queSize) % self.capacity();
-            // 尾结点后添加 num
+            // 将 num 添加至队尾
             self.nums[rear] = num;
             self.queSize += 1;
         } 

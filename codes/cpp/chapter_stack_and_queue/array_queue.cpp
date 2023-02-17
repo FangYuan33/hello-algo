@@ -50,7 +50,7 @@ public:
         // 计算队尾指针，指向队尾索引 + 1
         // 通过取余操作，实现 rear 越过数组尾部后回到头部
         int rear = (front + queSize) % queCapacity;
-        // 尾结点后添加 num
+        // 将 num 添加至队尾
         nums[rear] = num;
         queSize++;
     }
@@ -72,11 +72,10 @@ public:
 
     /* 将数组转化为 Vector 并返回 */
     vector<int> toVector() {
-        int cap = queCapacity;
         // 仅转换有效长度范围内的列表元素
         vector<int> arr(queSize);
         for (int i = 0, j = front; i < queSize; i++, j++) {
-            arr[i] = nums[j % cap];
+            arr[i] = nums[j % queCapacity];
         }
         return arr;
     }

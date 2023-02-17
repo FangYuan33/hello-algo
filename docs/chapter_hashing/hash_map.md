@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 6.1. 哈希表
+# 哈希表
 
 哈希表通过建立「键 key」和「值 value」之间的映射，实现高效的元素查找。具体地，输入一个 key ，在哈希表中查询并获取 value ，时间复杂度为 $O(1)$ 。
 
@@ -12,7 +12,7 @@ comments: true
 
 <p align="center"> Fig. 哈希表抽象表示 </p>
 
-## 6.1.1. 哈希表效率
+## 哈希表效率
 
 除了哈希表之外，还可以使用以下数据结构来实现上述查询功能：
 
@@ -33,7 +33,7 @@ comments: true
 
 </div>
 
-## 6.1.2. 哈希表常用操作
+## 哈希表常用操作
 
 哈希表的基本操作包括 **初始化、查询操作、添加与删除键值对**。
 
@@ -131,7 +131,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hash_map.js"
+    ```javascript title="hash_map.js"
     /* 初始化哈希表 */
     const map = new ArrayHashMap();
     /* 添加操作 */
@@ -309,20 +309,19 @@ comments: true
 
 === "JavaScript"
 
-    ```js title="hash_map.js"
+    ```javascript title="hash_map.js"
     /* 遍历哈希表 */
-    // 遍历键值对 key->value
-    for (const entry of map.entries()) {
-        if (!entry) continue;
-        console.info(entry.key + ' -> ' + entry.val);
+    console.info('\n遍历键值对 Key->Value');
+    for (const [k, v] of map.entries()) {
+        console.info(k + ' -> ' + v);
     }
-    // 单独遍历键 key
-    for (const key of map.keys()) {
-        console.info(key);
+    console.info('\n单独遍历键 Key');
+    for (const k of map.keys()) {
+        console.info(k);
     }
-    // 单独遍历值 value
-    for (const val of map.values()) {
-        console.info(val);
+    console.info('\n单独遍历值 Value');
+    for (const v of map.values()) {
+        console.info(v);
     }
     ```
 
@@ -392,7 +391,7 @@ comments: true
 
     ```
 
-## 6.1.3. 哈希函数
+## 哈希函数
 
 哈希表中存储元素的数据结构被称为「桶 Bucket」，底层实现可能是数组、链表、二叉树（红黑树），或是它们的组合。
 
@@ -424,54 +423,9 @@ $$
 === "C++"
 
     ```cpp title="array_hash_map.cpp"
-    /* 键值对 int->String */
-    struct Entry {
-    public:
-        int key;
-        string val;
-        Entry(int key, string val) {
-            this->key = key;
-            this->val = val;
-        }
-    };
-    
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap {
-    private:
-        vector<Entry*> bucket;
-    public:
-        ArrayHashMap() {
-            // 初始化一个长度为 100 的桶（数组）
-            bucket= vector<Entry*>(100);
-        }
-    
-        /* 哈希函数 */
-        int hashFunc(int key) {
-            int index = key % 100;
-            return index;
-        }
-    
-        /* 查询操作 */
-        string get(int key) {
-            int index = hashFunc(key);
-            Entry* pair = bucket[index];
-            return pair->val;
-        }
-    
-        /* 添加操作 */
-        void put(int key, string val) {
-            Entry* pair = new Entry(key, val);
-            int index = hashFunc(key);
-            bucket[index] = pair;
-        }
-    
-        /* 删除操作 */
-        void remove(int key) {
-            int index = hashFunc(key);
-            // 置为 nullptr ，代表删除
-            bucket[index] = nullptr;
-        }
-    };
+    [class]{Entry}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
     ```
 
 === "Python"
@@ -485,279 +439,60 @@ $$
 === "Go"
 
     ```go title="array_hash_map.go"
-    /* 键值对 int->String */
-    type entry struct {
-        key int
-        val string
-    }
-    
-    /* 基于数组简易实现的哈希表 */
-    type arrayHashMap struct {
-        bucket []*entry
-    }
-    
-    func newArrayHashMap() *arrayHashMap {
-        // 初始化一个长度为 100 的桶（数组）
-        bucket := make([]*entry, 100)
-        return &arrayHashMap{bucket: bucket}
-    }
-    
-    /* 哈希函数 */
-    func (a *arrayHashMap) hashFunc(key int) int {
-        index := key % 100
-        return index
-    }
-    
-    /* 查询操作 */
-    func (a *arrayHashMap) get(key int) string {
-        index := a.hashFunc(key)
-        pair := a.bucket[index]
-        if pair == nil {
-            return "Not Found"
-        }
-        return pair.val
-    }
-    
-    /* 添加操作 */
-    func (a *arrayHashMap) put(key int, val string) {
-        pair := &entry{key: key, val: val}
-        index := a.hashFunc(key)
-        a.bucket[index] = pair
-    }
-    
-    /* 删除操作 */
-    func (a *arrayHashMap) remove(key int) {
-        index := a.hashFunc(key)
-        // 置为 nil ，代表删除
-        a.bucket[index] = nil
-    }
+    [class]{entry}-[func]{}
+
+    [class]{arrayHashMap}-[func]{}
     ```
 
 === "JavaScript"
 
-    ```js title="array_hash_map.js"
-    /* 键值对 Number -> String */
-    class Entry {
-        constructor(key, val) {
-            this.key = key;
-            this.val = val;
-        }
-    }
-    
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap {
-        #bucket;
-        constructor() {
-            // 初始化一个长度为 100 的桶（数组）
-            this.#bucket = new Array(100).fill(null);
-        }
-    
-        /* 哈希函数 */
-        #hashFunc(key) {
-            return key % 100;
-        }
-    
-        /* 查询操作 */
-        get(key) {
-            let index = this.#hashFunc(key);
-            let entry = this.#bucket[index];
-            if (entry === null) return null;
-            return entry.val;
-        }
-    
-        /* 添加操作 */
-        set(key, val) {
-            let index = this.#hashFunc(key);
-            this.#bucket[index] = new Entry(key, val);
-        }
-    
-        /* 删除操作 */
-        delete(key) {
-            let index = this.#hashFunc(key);
-            // 置为 null ，代表删除
-            this.#bucket[index] = null;
-        }
-    }
+    ```javascript title="array_hash_map.js"
+    [class]{Entry}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="array_hash_map.ts"
-    /* 键值对 Number -> String */
-    class Entry {
-    public key: number;
-    public val: string;
-    
-        constructor(key: number, val: string) {
-            this.key = key;
-            this.val = val;
-        }
-    }
-    
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap {
-    
-        private readonly bucket: (Entry | null)[];
-    
-        constructor() {
-            // 初始化一个长度为 100 的桶（数组）
-            this.bucket = (new Array(100)).fill(null);
-        }
-    
-        /* 哈希函数 */
-        private hashFunc(key: number): number {
-            return key % 100;
-        }
-    
-        /* 查询操作 */
-        public get(key: number): string | null {
-            let index = this.hashFunc(key);
-            let entry = this.bucket[index];
-            if (entry === null) return null;
-            return entry.val;
-        }
-    
-        /* 添加操作 */
-        public set(key: number, val: string) {
-            let index = this.hashFunc(key);
-            this.bucket[index] = new Entry(key, val);
-        }
-    
-        /* 删除操作 */
-        public delete(key: number) {
-            let index = this.hashFunc(key);
-            // 置为 null ，代表删除
-            this.bucket[index] = null;
-        }
-    }
+    [class]{Entry}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
     ```
 
 === "C"
 
     ```c title="array_hash_map.c"
-    
+    [class]{entry}-[func]{}
+
+    [class]{arrayHashMap}-[func]{}
     ```
 
 === "C#"
 
     ```csharp title="array_hash_map.cs"
-    /* 键值对 int->String */
-    class Entry
-    {
-        public int key;
-        public String val;
-        public Entry(int key, String val)
-        {
-            this.key = key;
-            this.val = val;
-        }
-    }
-    
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap
-    {
-        private List<Entry?> bucket;
-        public ArrayHashMap()
-        {
-            // 初始化一个长度为 100 的桶（数组）
-            bucket = new ();
-            for (int i = 0; i < 100; i++)
-            {
-                bucket.Add(null);
-            }
-        }
-        /* 哈希函数 */
-        private int hashFunc(int key)
-        {
-            int index = key % 100;
-            return index;
-        }
-        /* 查询操作 */
-        public String? get(int key)
-        {
-            int index = hashFunc(key);
-            Entry? pair = bucket[index];
-            if (pair == null) return null;
-            return pair.val;
-        }
-        /* 添加操作 */
-        public void put(int key, String val)
-        {
-            Entry pair = new Entry(key, val);
-            int index = hashFunc(key);
-            bucket[index]=pair;
-        }
-        /* 删除操作 */
-        public void remove(int key)
-        {
-            int index = hashFunc(key);
-            // 置为 null ，代表删除
-            bucket[index]=null;
-        }
-    }
+    [class]{Entry}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
     ```
 
 === "Swift"
 
     ```swift title="array_hash_map.swift"
-    /* 键值对 int->String */
-    class Entry {
-        var key: Int
-        var val: String
-    
-        init(key: Int, val: String) {
-            self.key = key
-            self.val = val
-        }
-    }
-    
-    /* 基于数组简易实现的哈希表 */
-    class ArrayHashMap {
-        private var bucket: [Entry?] = []
-    
-        init() {
-            // 初始化一个长度为 100 的桶（数组）
-            for _ in 0 ..< 100 {
-                bucket.append(nil)
-            }
-        }
-    
-        /* 哈希函数 */
-        private func hashFunc(key: Int) -> Int {
-            let index = key % 100
-            return index
-        }
-    
-        /* 查询操作 */
-        func get(key: Int) -> String? {
-            let index = hashFunc(key: key)
-            let pair = bucket[index]
-            return pair?.val
-        }
-    
-        /* 添加操作 */
-        func put(key: Int, val: String) {
-            let pair = Entry(key: key, val: val)
-            let index = hashFunc(key: key)
-            bucket[index] = pair
-        }
-    
-        /* 删除操作 */
-        func remove(key: Int) {
-            let index = hashFunc(key: key)
-            // 置为 nil ，代表删除
-            bucket[index] = nil
-        }
-    }
+    [class]{Entry}-[func]{}
+
+    [class]{ArrayHashMap}-[func]{}
     ```
 
 === "Zig"
 
     ```zig title="array_hash_map.zig"
+    [class]{Entry}-[func]{}
 
+    [class]{ArrayHashMap}-[func]{}
     ```
 
-## 6.1.4. 哈希冲突
+## 哈希冲突
 
 细心的同学可能会发现，**哈希函数 $f(x) = x \% 100$ 会在某些情况下失效**。具体地，当输入的 key 后两位相同时，哈希函数的计算结果也相同，指向同一个 value 。例如，分别查询两个学号 $12836$ 和 $20336$ ，则有
 

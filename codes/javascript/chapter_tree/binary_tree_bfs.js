@@ -8,18 +8,18 @@ const { arrToTree } = require("../include/TreeNode");
 const { printTree } = require("../include/PrintUtil");
 
 /* 层序遍历 */
-function hierOrder(root) {
+function levelOrder(root) {
     // 初始化队列，加入根结点
     let queue = [root];
     // 初始化一个列表，用于保存遍历序列
     let list = [];
     while (queue.length) {
-        let node = queue.shift();  // 队列出队
-        list.push(node.val);          // 保存结点值
+        let node = queue.shift();   // 队列出队
+        list.push(node.val);        // 保存结点值
         if (node.left)
-            queue.push(node.left);    // 左子结点入队
+            queue.push(node.left);  // 左子结点入队
         if (node.right)
-            queue.push(node.right);   // 右子结点入队
+            queue.push(node.right); // 右子结点入队
 
     }
     return list;
@@ -33,5 +33,5 @@ console.log("\n初始化二叉树\n");
 printTree(root);
 
 /* 层序遍历 */
-let list = hierOrder(root);
+let list = levelOrder(root);
 console.log("\n层序遍历的结点打印序列 = " + list);

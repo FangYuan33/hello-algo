@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 11.3. 插入排序
+# 插入排序
 
 「插入排序 Insertion Sort」是一种基于 **数组插入操作** 的排序算法。
 
@@ -14,7 +14,7 @@ comments: true
 
 <p align="center"> Fig. 插入操作 </p>
 
-## 11.3.1. 算法流程
+## 算法流程
 
 1. 第 1 轮先选取数组的 **第 2 个元素** 为 `base` ，执行「插入操作」后，**数组前 2 个元素已完成排序**。
 2. 第 2 轮选取 **第 3 个元素** 为 `base` ，执行「插入操作」后，**数组前 3 个元素已完成排序**。
@@ -33,19 +33,7 @@ comments: true
 === "C++"
 
     ```cpp title="insertion_sort.cpp"
-    /* 插入排序 */
-    void insertionSort(vector<int>& nums) {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (int i = 1; i < nums.size(); i++) {
-            int base = nums[i], j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j];  // 1. 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = base;         // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "Python"
@@ -57,128 +45,46 @@ comments: true
 === "Go"
 
     ```go title="insertion_sort.go"
-    /* 插入排序 */
-    func insertionSort(nums []int) {
-        // 外循环：待排序元素数量为 n-1, n-2, ..., 1
-        for i := 1; i < len(nums); i++ {
-            base := nums[i]
-            j := i - 1
-            // 内循环：将 base 插入到左边的正确位置
-            for j >= 0 && nums[j] > base {
-                nums[j+1] = nums[j]     // 1. 将 nums[j] 向右移动一位
-                j--
-            }
-            nums[j+1] = base            // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "JavaScript"
 
-    ```js title="insertion_sort.js"
-    /* 插入排序 */
-    function insertionSort(nums) {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (let i = 1; i < nums.length; i++) {
-            let base = nums[i], j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j];  // 1. 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = base;         // 2. 将 base 赋值到正确位置
-        }
-    }
+    ```javascript title="insertion_sort.js"
+    [class]{}-[func]{insertionSort}
     ```
 
 === "TypeScript"
 
     ```typescript title="insertion_sort.ts"
-    /* 插入排序 */
-    function insertionSort(nums: number[]): void {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (let i = 1; i < nums.length; i++) {
-            const base = nums[i];
-            let j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j];  // 1. 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = base;         // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "C"
 
     ```c title="insertion_sort.c"
-    /* 插入排序 */
-    void insertionSort(int nums[], int size) {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (int i = 1; i < size; i++)
-        {
-            int base = nums[i], j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > base)
-            {
-                // 1. 将 nums[j] 向右移动一位
-                nums[j + 1] = nums[j]; 
-                j--;
-            }
-            // 2. 将 base 赋值到正确位置
-            nums[j + 1] = base; 
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "C#"
 
     ```csharp title="insertion_sort.cs"
-    /* 插入排序 */
-    void insertionSort(int[] nums)
-    {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for (int i = 1; i < nums.Length; i++)
-        {
-            int bas = nums[i], j = i - 1;
-            // 内循环：将 base 插入到左边的正确位置
-            while (j >= 0 && nums[j] > bas)
-            {
-                nums[j + 1] = nums[j]; // 1. 将 nums[j] 向右移动一位
-                j--;
-            }
-            nums[j + 1] = bas;         // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{insertion_sort}-[func]{insertionSort}
     ```
 
 === "Swift"
 
     ```swift title="insertion_sort.swift"
-    /* 插入排序 */
-    func insertionSort(nums: inout [Int]) {
-        // 外循环：base = nums[1], nums[2], ..., nums[n-1]
-        for i in stride(from: 1, to: nums.count, by: 1) {
-            let base = nums[i]
-            var j = i - 1
-            // 内循环：将 base 插入到左边的正确位置
-            while j >= 0, nums[j] > base {
-                nums[j + 1] = nums[j] // 1. 将 nums[j] 向右移动一位
-                j -= 1
-            }
-            nums[j + 1] = base // 2. 将 base 赋值到正确位置
-        }
-    }
+    [class]{}-[func]{insertionSort}
     ```
 
 === "Zig"
 
     ```zig title="insertion_sort.zig"
-
+    [class]{}-[func]{insertionSort}
     ```
 
-## 11.3.2. 算法特性
+## 算法特性
 
 **时间复杂度 $O(n^2)$** ：最差情况下，各轮插入操作循环 $n - 1$ , $n-2$ , $\cdots$ , $2$ , $1$ 次，求和为 $\frac{(n - 1) n}{2}$ ，使用 $O(n^2)$ 时间。
 
@@ -190,7 +96,7 @@ comments: true
 
 **自适应排序**：最佳情况下，时间复杂度为 $O(n)$  。
 
-## 11.3.3. 插入排序 vs 冒泡排序
+## 插入排序 vs 冒泡排序
 
 !!! question
 

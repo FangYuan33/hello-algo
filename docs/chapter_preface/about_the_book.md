@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# 0.1. 关于本书
+# 关于本书
 
 五年前发生的一件事，成为了我职业生涯的重要转折点。当时的我在交大读研，对互联网求职一无所知，但仍然硬着头皮申请了 Microsoft 软件工程师实习。面试官让我在白板上写出“快速排序”代码，我畏畏缩缩地写了一个“冒泡排序”，并且还写错了` (ToT) ` 。从面试官的表情上，我看到了一个大大的 "GG" 。
 
@@ -12,7 +12,7 @@ comments: true
 
 <h4 align="center"> Hello，算法！ </h4>
 
-## 0.1.1. 读者对象
+## 读者对象
 
 !!! success "前置条件"
 
@@ -32,7 +32,7 @@ comments: true
 
 如果您是 **算法大佬**，请受我膜拜！希望您可以抽时间提出意见建议，或者[一起参与创作](https://www.hello-algo.com/chapter_preface/contribution/)，帮助各位同学获取更好的学习内容，感谢！
 
-## 0.1.2. 内容结构
+## 内容结构
 
 本书主要内容分为复杂度分析、数据结构、算法三个部分。
 
@@ -71,7 +71,7 @@ comments: true
 - 实现方法：完整的算法实现，以及优化措施；
 - 示例题目：结合例题加深理解；
 
-## 0.1.3. 配套代码
+## 配套代码
 
 完整代码托管在 [GitHub 仓库](https://github.com/krahets/hello-algo) ，皆可一键运行。
 
@@ -80,7 +80,7 @@ comments: true
     1. [编程环境安装](https://www.hello-algo.com/chapter_preface/installation/) ，若有请跳过
     2. 代码下载与使用方法请见 [如何使用本书](https://www.hello-algo.com/chapter_preface/suggestions/#_4)
 
-## 0.1.4. 风格约定
+## 风格约定
 
 - 标题后标注 * 符号的是选读章节，如果你的时间有限，可以先跳过这些章节。
 - 文章中的重要名词会用「」符号标注，例如「数组 Array」。名词混淆会导致不必要的歧义，因此最好可以记住这类名词（包括中文和英文），以便后续阅读文献时使用。
@@ -142,7 +142,7 @@ comments: true
 
 === "JavaScript"
 
-    ```js title=""
+    ```javascript title=""
     /* 标题注释，用于标注函数、类、测试样例等 */
     
     // 内容注释，用于详解代码
@@ -216,7 +216,7 @@ comments: true
     // 注释
     ```
 
-## 0.1.5. 本书特点 *
+## 本书特点 *
 
 ??? abstract "默认折叠，可以跳过"
 
@@ -238,21 +238,23 @@ comments: true
     
     敲代码如同写字，“美”是统一的追求。本书力求美观的代码，保证规范的变量命名、统一的空格与换行、对齐的缩进、整齐的注释等。
 
-## 0.1.6. 致谢
+## 致谢
 
 本书的成书过程中，我获得了许多人的帮助，包括但不限于：
 
 - 感谢我的女朋友泡泡担任本书的首位读者，从算法小白的视角为本书的写作提出了许多建议，使这本书更加适合算法初学者来阅读。
 - 感谢腾宝、琦宝、飞宝为本书起了个响当当的名字，好听又有梗，直接唤起我最初敲下第一行代码 "Hello, World!" 的回忆。
-- 感谢我的导师李博，在小酌畅谈时您告诉我“觉得适合、想做就去做”，坚定了我写这本书的决心。
+- 感谢我的导师李博，在小酌畅谈时您告诉我“觉得应该做就去做”，坚定了我写这本书的决心。
 - 感谢苏潼为本书设计了封面和 LOGO ，我有些强迫症，前后多次修改，谢谢你的耐心。
-- 感谢 @squidfunk ，包括 [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master) 顶级开源项目以及给出的写作排版建议。
+- 感谢 @squidfunk 给出的写作排版建议，以及优秀开源项目 [Material-for-MkDocs](https://github.com/squidfunk/mkdocs-material/tree/master) 。
 
-在写作过程中，我阅读了许多与数据结构与算法的书籍材料，学习到了许多知识，感谢前辈们的精彩创作。
+本书鼓励“手脑并用”的学习方式，在这点上受到了《动手学深度学习》很大影响，也在此向各位同学强烈推荐这本著作，包括[中文版](https://github.com/d2l-ai/d2l-zh)、[英文版](https://github.com/d2l-ai/d2l-en)、[李沐老师 bilibili 主页](https://space.bilibili.com/1567748478)。
+
+在写作过程中，我阅读了许多与数据结构与算法的书籍与教材，这些著作为本书作出了很好的榜样，保证了本书内容的正确性与质量，感谢前辈们的精彩创作！
 
 感谢父母，你们一贯的支持与鼓励给了我自由度来做这些有趣的事。
 
-## 0.1.7. 作者简介
+## 作者简介
 
 ![profile](about_the_book.assets/profile.png){: .center}
 
@@ -261,5 +263,5 @@ comments: true
 <h5 align="center"> 大厂高级算法工程师、算法爱好者 </h5>
 
 <p align="center"> 力扣（LeetCode）全网阅读量最高博主 </p>
-<p align="center"> 分享近百道算法题解，累积回复数千读者的评论问题 </p>
-<p align="center"> 创作 LeetBook《图解算法数据结构》，已免费售出 22 万本 </p>
+<p align="center"> 分享近百道算法题解，累积回复数千读者的问题 </p>
+<p align="center"> 发表的 LeetBook《图解算法数据结构》已订阅 22 万本 </p>
