@@ -4,31 +4,15 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 顶点类 */
-class Vertex: Hashable {
-    var val: Int
-
-    init(val: Int) {
-        self.val = val
-    }
-
-    static func == (lhs: Vertex, rhs: Vertex) -> Bool {
-        lhs.val == rhs.val
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(val)
-    }
-}
+import utils
 
 /* 基于邻接表实现的无向图类 */
-class GraphAdjList {
-    // 邻接表，使用哈希表来代替链表，以提升删除边、删除顶点的效率
-    // 请注意，adjList 中的元素是 Vertex 对象
-    private var adjList: [Vertex: Set<Vertex>]
+public class GraphAdjList {
+    // 邻接表，key: 顶点，value：该顶点的所有邻接顶点
+    public private(set) var adjList: [Vertex: [Vertex]]
 
     /* 构造方法 */
-    init(edges: [[Vertex]]) {
+    public init(edges: [[Vertex]]) {
         adjList = [:]
         // 添加所有顶点和边
         for edge in edges {
@@ -39,32 +23,32 @@ class GraphAdjList {
     }
 
     /* 获取顶点数量 */
-    func size() -> Int {
+    public func size() -> Int {
         adjList.count
     }
 
     /* 添加边 */
-    func addEdge(vet1: Vertex, vet2: Vertex) {
+    public func addEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
             fatalError("参数错误")
         }
         // 添加边 vet1 - vet2
-        adjList[vet1]?.insert(vet2)
-        adjList[vet2]?.insert(vet1)
+        adjList[vet1]?.append(vet2)
+        adjList[vet2]?.append(vet1)
     }
 
     /* 删除边 */
-    func removeEdge(vet1: Vertex, vet2: Vertex) {
+    public func removeEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
             fatalError("参数错误")
         }
         // 删除边 vet1 - vet2
-        adjList[vet1]?.remove(vet2)
-        adjList[vet2]?.remove(vet1)
+        adjList[vet1]?.removeAll(where: { $0 == vet2 })
+        adjList[vet2]?.removeAll(where: { $0 == vet1 })
     }
 
     /* 添加顶点 */
-    func addVertex(vet: Vertex) {
+    public func addVertex(vet: Vertex) {
         if adjList[vet] != nil {
             return
         }
@@ -73,7 +57,7 @@ class GraphAdjList {
     }
 
     /* 删除顶点 */
-    func removeVertex(vet: Vertex) {
+    public func removeVertex(vet: Vertex) {
         if adjList[vet] == nil {
             fatalError("参数错误")
         }
@@ -81,12 +65,12 @@ class GraphAdjList {
         adjList.removeValue(forKey: vet)
         // 遍历其它顶点的链表，删除所有包含 vet 的边
         for key in adjList.keys {
-            adjList[key]?.remove(vet)
+            adjList[key]?.removeAll(where: { $0 == vet })
         }
     }
 
     /* 打印邻接表 */
-    func print() {
+    public func print() {
         Swift.print("邻接表 =")
         for entry in adjList {
             var tmp: [Int] = []
@@ -98,30 +82,28 @@ class GraphAdjList {
     }
 }
 
+#if !TARGET
+
 @main
 enum GraphAdjacencyList {
     /* Driver Code */
     static func main() {
         /* 初始化无向图 */
-        let v0 = Vertex(val: 1)
-        let v1 = Vertex(val: 3)
-        let v2 = Vertex(val: 2)
-        let v3 = Vertex(val: 5)
-        let v4 = Vertex(val: 4)
-        let edges = [[v0, v1], [v1, v2], [v2, v3], [v0, v3], [v2, v4], [v3, v4]]
+        let v = Vertex.valsToVets(vals: [1, 3, 2, 5, 4])
+        let edges = [[v[0], v[1]], [v[0], v[3]], [v[1], v[2]], [v[2], v[3]], [v[2], v[4]], [v[3], v[4]]]
         let graph = GraphAdjList(edges: edges)
         print("\n初始化后，图为")
         graph.print()
 
         /* 添加边 */
-        // 顶点 1, 2 即 v0, v2
-        graph.addEdge(vet1: v0, vet2: v2)
+        // 顶点 1, 2 即 v[0], v[2]
+        graph.addEdge(vet1: v[0], vet2: v[2])
         print("\n添加边 1-2 后，图为")
         graph.print()
 
         /* 删除边 */
-        // 顶点 1, 3 即 v0, v1
-        graph.removeEdge(vet1: v0, vet2: v1)
+        // 顶点 1, 3 即 v[0], v[1]
+        graph.removeEdge(vet1: v[0], vet2: v[1])
         print("\n删除边 1-3 后，图为")
         graph.print()
 
@@ -132,9 +114,11 @@ enum GraphAdjacencyList {
         graph.print()
 
         /* 删除顶点 */
-        // 顶点 3 即 v1
-        graph.removeVertex(vet: v1)
+        // 顶点 3 即 v[1]
+        graph.removeVertex(vet: v[1])
         print("\n删除顶点 3 后，图为")
         graph.print()
     }
 }
+
+#endif

@@ -52,7 +52,7 @@ comments: true
     // 初始化小顶堆
     Queue<Integer> minHeap = new PriorityQueue<>();
     // 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
-    Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> { return b - a; });
+    Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
     
     /* 元素入堆 */
     maxHeap.add(1);
@@ -123,7 +123,41 @@ comments: true
 === "Python"
 
     ```python title="heap.py"
+    # 初始化小顶堆
+    min_heap, flag = [], 1
+    # 初始化大顶堆
+    max_heap, flag = [], -1
 
+    # Python 的 heapq 模块默认实现小顶堆
+    # 考虑将“元素取负”后再入堆，这样就可以将大小关系颠倒，从而实现大顶堆
+    # 在本示例中，flag = 1 时对应小顶堆，flag = -1 时对应大顶堆
+    """ 元素入堆 """
+    heapq.heappush(max_heap, flag * 1)
+    heapq.heappush(max_heap, flag * 3)
+    heapq.heappush(max_heap, flag * 2)
+    heapq.heappush(max_heap, flag * 5)
+    heapq.heappush(max_heap, flag * 4)
+
+    """ 获取堆顶元素 """
+    peek = flag * max_heap[0] # 5
+
+    """ 堆顶元素出堆 """
+    # 出堆元素会形成一个从大到小的序列
+    val = flag * heapq.heappop(max_heap) # 5
+    val = flag * heapq.heappop(max_heap) # 4
+    val = flag * heapq.heappop(max_heap) # 3
+    val = flag * heapq.heappop(max_heap) # 2
+    val = flag * heapq.heappop(max_heap) # 1
+
+    """ 获取堆大小 """
+    size = len(max_heap)
+
+    """ 判断堆是否为空 """
+    is_empty = not max_heap
+
+    """ 输入列表并建堆 """
+    min_heap = [1, 3, 2, 5, 4]
+    heapq.heapify(min_heap)
     ```
 
 === "Go"
@@ -311,7 +345,11 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
+    [class]{MaxHeap}-[func]{left}
 
+    [class]{MaxHeap}-[func]{right}
+
+    [class]{MaxHeap}-[func]{parent}
     ```
 
 === "Go"
@@ -403,7 +441,7 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-
+    [class]{MaxHeap}-[func]{peek}
     ```
 
 === "Go"
@@ -454,22 +492,22 @@ comments: true
 
 考虑从入堆结点开始，**从底至顶执行堆化**。具体地，比较插入结点与其父结点的值，若插入结点更大则将它们交换；并循环以上操作，从底至顶地修复堆中的各个结点；直至越过根结点时结束，或当遇到无需交换的结点时提前结束。
 
-=== "Step 1"
+=== "<1>"
     ![heap_push_step1](heap.assets/heap_push_step1.png)
 
-=== "Step 2"
+=== "<2>"
     ![heap_push_step2](heap.assets/heap_push_step2.png)
 
-=== "Step 3"
+=== "<3>"
     ![heap_push_step3](heap.assets/heap_push_step3.png)
 
-=== "Step 4"
+=== "<4>"
     ![heap_push_step4](heap.assets/heap_push_step4.png)
 
-=== "Step 5"
+=== "<5>"
     ![heap_push_step5](heap.assets/heap_push_step5.png)
 
-=== "Step 6"
+=== "<6>"
     ![heap_push_step6](heap.assets/heap_push_step6.png)
 
 设结点总数为 $n$ ，则树的高度为 $O(\log n)$ ，易得堆化操作的循环轮数最多为 $O(\log n)$ ，**因而元素入堆操作的时间复杂度为 $O(\log n)$** 。
@@ -493,7 +531,9 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
+    [class]{MaxHeap}-[func]{push}
 
+    [class]{MaxHeap}-[func]{sift_up}
     ```
 
 === "Go"
@@ -562,34 +602,34 @@ comments: true
 
 顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们比较根结点的值与其两个子结点的值，将最大的子结点与根结点执行交换，并循环以上操作，直到越过叶结点时结束，或当遇到无需交换的结点时提前结束。
 
-=== "Step 1"
+=== "<1>"
     ![heap_poll_step1](heap.assets/heap_poll_step1.png)
 
-=== "Step 2"
+=== "<2>"
     ![heap_poll_step2](heap.assets/heap_poll_step2.png)
 
-=== "Step 3"
+=== "<3>"
     ![heap_poll_step3](heap.assets/heap_poll_step3.png)
 
-=== "Step 4"
+=== "<4>"
     ![heap_poll_step4](heap.assets/heap_poll_step4.png)
 
-=== "Step 5"
+=== "<5>"
     ![heap_poll_step5](heap.assets/heap_poll_step5.png)
 
-=== "Step 6"
+=== "<6>"
     ![heap_poll_step6](heap.assets/heap_poll_step6.png)
 
-=== "Step 7"
+=== "<7>"
     ![heap_poll_step7](heap.assets/heap_poll_step7.png)
 
-=== "Step 8"
+=== "<8>"
     ![heap_poll_step8](heap.assets/heap_poll_step8.png)
 
-=== "Step 9"
+=== "<9>"
     ![heap_poll_step9](heap.assets/heap_poll_step9.png)
 
-=== "Step 10"
+=== "<10>"
     ![heap_poll_step10](heap.assets/heap_poll_step10.png)
 
 与元素入堆操作类似，**堆顶元素出堆操作的时间复杂度为 $O(\log n)$** 。
@@ -613,7 +653,9 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
+    [class]{MaxHeap}-[func]{poll}
 
+    [class]{MaxHeap}-[func]{sift_down}
     ```
 
 === "Go"
@@ -693,7 +735,7 @@ comments: true
 === "Python"
 
     ```python title="my_heap.py"
-
+    [class]{MaxHeap}-[func]{__init__}
     ```
 
 === "Go"

@@ -43,7 +43,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Python"
 
     ```python title="graph_bfs.py"
-
+    [class]{}-[func]{graph_bfs}
     ```
 
 === "Go"
@@ -79,7 +79,7 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Swift"
 
     ```swift title="graph_bfs.swift"
-
+    [class]{}-[func]{graphBFS}
     ```
 
 === "Zig"
@@ -90,37 +90,37 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 
 代码相对抽象，建议对照以下动画图示来加深理解。
 
-=== "Step 1"
+=== "<1>"
     ![graph_bfs_step1](graph_traversal.assets/graph_bfs_step1.png)
 
-=== "Step 2"
+=== "<2>"
     ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.png)
 
-=== "Step 3"
+=== "<3>"
     ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.png)
 
-=== "Step 4"
+=== "<4>"
     ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.png)
 
-=== "Step 5"
+=== "<5>"
     ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.png)
 
-=== "Step 6"
+=== "<6>"
     ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.png)
 
-=== "Step 7"
+=== "<7>"
     ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.png)
 
-=== "Step 8"
+=== "<8>"
     ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.png)
 
-=== "Step 9"
+=== "<9>"
     ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.png)
 
-=== "Step 10"
+=== "<10>"
     ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.png)
 
-=== "Step 11"
+=== "<11>"
     ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.png)
 
 !!! question "广度优先遍历的序列是否唯一？"
@@ -160,7 +160,9 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Python"
 
     ```python title="graph_dfs.py"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graph_dfs}
     ```
 
 === "Go"
@@ -196,7 +198,9 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 === "Swift"
 
     ```swift title="graph_dfs.swift"
+    [class]{}-[func]{dfs}
 
+    [class]{}-[func]{graphDFS}
     ```
 
 === "Zig"
@@ -212,37 +216,37 @@ BFS 常借助「队列」来实现。队列具有“先入先出”的性质，�
 
 为了加深理解，请你将图示与代码结合起来，在脑中（或者用笔画下来）模拟整个 DFS 过程，包括每个递归方法何时开启、何时返回。
 
-=== "Step 1"
+=== "<1>"
     ![graph_dfs_step1](graph_traversal.assets/graph_dfs_step1.png)
 
-=== "Step 2"
+=== "<2>"
     ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.png)
 
-=== "Step 3"
+=== "<3>"
     ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.png)
 
-=== "Step 4"
+=== "<4>"
     ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.png)
 
-=== "Step 5"
+=== "<5>"
     ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.png)
 
-=== "Step 6"
+=== "<6>"
     ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.png)
 
-=== "Step 7"
+=== "<7>"
     ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.png)
 
-=== "Step 8"
+=== "<8>"
     ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.png)
 
-=== "Step 9"
+=== "<9>"
     ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.png)
 
-=== "Step 10"
+=== "<10>"
     ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.png)
 
-=== "Step 11"
+=== "<11>"
     ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.png)
 
 !!! question "深度优先遍历的序列是否唯一？"
