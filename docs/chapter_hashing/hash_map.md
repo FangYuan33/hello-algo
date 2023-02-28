@@ -1,16 +1,10 @@
----
-comments: true
----
-
-# 哈希表
+# 哈希表（Hash Map）
 
 哈希表通过建立「键 key」和「值 value」之间的映射，实现高效的元素查找。具体地，输入一个 key ，在哈希表中查询并获取 value ，时间复杂度为 $O(1)$ 。
 
 例如，给定一个包含 $n$ 个学生的数据库，每个学生有“姓名 `name` ”和“学号 `id` ”两项数据，希望实现一个查询功能：**输入一个学号，返回对应的姓名**，则可以使用哈希表实现。
 
-![hash_map](hash_map.assets/hash_map.png)
-
-<p align="center"> Fig. 哈希表抽象表示 </p>
+![哈希表的抽象表示](hash_map.assets/hash_map.png)
 
 ## 哈希表效率
 
@@ -408,9 +402,7 @@ $$
 f(x) = x \% 100
 $$
 
-![hash_function](hash_map.assets/hash_function.png)
-
-<p align="center"> Fig. 哈希函数 </p>
+![简单哈希函数示例](hash_map.assets/hash_function.png)
 
 === "Java"
 
@@ -502,9 +494,7 @@ $$
 
 两个学号指向了同一个姓名，这明显是不对的，我们将这种现象称为「哈希冲突 Hash Collision」。如何避免哈希冲突的问题将被留在下章讨论。
 
-![hash_collision](hash_map.assets/hash_collision.png)
-
-<p align="center"> Fig. 哈希冲突 </p>
+![哈希冲突示例](hash_map.assets/hash_collision.png)
 
 综上所述，一个优秀的「哈希函数」应该具备以下特性：
 

@@ -7,9 +7,9 @@ hide:
 === " "
 
     <div class="result" markdown>
-    ![conceptual_rendering](index.assets/conceptual_rendering.png){ align=left width=350 }
+    ![conceptual_rendering](index.assets/conceptual_rendering.png){ align=left width=330 }
     </br></br></br></br></br>
-    <h1 align="center"> 《 Hello，算法 》 </h1>
+    <h1 align="center"> 《 Hello 算法 》 </h1>
     <p align="center"> 动画图解、能运行、可提问的</br>数据结构与算法快速入门教程 </p>
     <p align="center"> [![github-stars](https://img.shields.io/github/stars/krahets/hello-algo?style=social)](https://github.com/krahets/hello-algo)</p>
     <h6 align="center"> [@Krahets](https://leetcode.cn/u/jyd/) </h6>
@@ -70,7 +70,9 @@ hide:
 
     **—— 邓俊辉，清华大学计算机系教授**
 
-<h2 align="center"> 参与写作 </h2>
+---
+
+<h2 align="center"> 致谢 </h2>
 
 感谢本开源书的每一位撰稿人，是他们的无私奉献让这本书变得更好，他们是（顺序由 contrib.rocks 自动生成）：
 
@@ -95,3 +97,18 @@ hide:
 </div>
 
 ---
+
+<h2 align="center"> 作者 </h2>
+
+</br>
+
+<p align="center">
+    <img width="110" src="index.assets/profile.png" />
+</p>
+
+<h3 align="center"> 靳宇栋 Krahets </h2>
+
+<h6 align="center"> 大厂高级算法工程师 </h5>
+
+<h6 align="center"> 力扣（LeetCode）全网阅读量最高博主 </p>
+<h6 align="center"> LeetBook《图解算法数据结构》已订阅 22 万本 </p>

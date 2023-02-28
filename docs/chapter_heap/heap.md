@@ -1,15 +1,11 @@
----
-comments: true
----
-
-# 堆
+# 堆（Heap）
 
 「堆 Heap」是一棵限定条件下的「完全二叉树」。根据成立条件，堆主要分为两种类型：
 
 - 「大顶堆 Max Heap」，任意结点的值 $\geq$ 其子结点的值；
 - 「小顶堆 Min Heap」，任意结点的值 $\leq$ 其子结点的值；
 
-![min_heap_and_max_heap](heap.assets/min_heap_and_max_heap.png)
+![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.png)
 
 ## 堆术语与性质
 
@@ -24,8 +20,6 @@ comments: true
 而恰好，**堆的定义与优先队列的操作逻辑完全吻合**，大顶堆就是一个元素从大到小出队的优先队列。从使用角度看，我们可以将「优先队列」和「堆」理解为等价的数据结构。因此，本文与代码对两者不做特别区分，统一使用「堆」来命名。
 
 堆的常用操作见下表（方法命名以 Java 为例）。
-
-<p align="center"> Table. 堆的常用操作 </p>
 
 <div class="center-table" markdown>
 
@@ -318,7 +312,7 @@ comments: true
 
 具体地，给定索引 $i$ ，那么其左子结点索引为 $2i + 1$ 、右子结点索引为 $2i + 2$ 、父结点索引为 $(i - 1) / 2$ （向下整除）。当索引越界时，代表空结点或结点不存在。
 
-![representation_of_heap](heap.assets/representation_of_heap.png)
+![堆的表示与存储](heap.assets/representation_of_heap.png)
 
 我们将索引映射公式封装成函数，以便后续使用。
 
@@ -493,7 +487,7 @@ comments: true
 考虑从入堆结点开始，**从底至顶执行堆化**。具体地，比较插入结点与其父结点的值，若插入结点更大则将它们交换；并循环以上操作，从底至顶地修复堆中的各个结点；直至越过根结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "<1>"
-    ![heap_push_step1](heap.assets/heap_push_step1.png)
+    ![元素入堆步骤](heap.assets/heap_push_step1.png)
 
 === "<2>"
     ![heap_push_step2](heap.assets/heap_push_step2.png)
@@ -603,7 +597,7 @@ comments: true
 顾名思义，**从顶至底堆化的操作方向与从底至顶堆化相反**，我们比较根结点的值与其两个子结点的值，将最大的子结点与根结点执行交换，并循环以上操作，直到越过叶结点时结束，或当遇到无需交换的结点时提前结束。
 
 === "<1>"
-    ![heap_poll_step1](heap.assets/heap_poll_step1.png)
+    ![堆顶元素出堆步骤](heap.assets/heap_poll_step1.png)
 
 === "<2>"
     ![heap_poll_step2](heap.assets/heap_poll_step2.png)
@@ -713,114 +707,6 @@ comments: true
 
     [class]{MaxHeap}-[func]{siftDown}
     ```
-
-### 输入数据并建堆 *
-
-如果我们想要直接输入一个列表并将其建堆，那么该怎么做呢？最直接地，考虑使用「元素入堆」方法，将列表元素依次入堆。元素入堆的时间复杂度为 $O(\log n)$ ，而平均长度为 $\frac{n}{2}$ ，因此该方法的总体时间复杂度为 $O(n \log n)$ 。
-
-然而，存在一种更加优雅的建堆方法。设结点数量为 $n$ ，我们先将列表所有元素原封不动添加进堆，**然后迭代地对各个结点执行「从顶至底堆化」**。当然，**无需对叶结点执行堆化**，因为其没有子结点。
-
-=== "Java"
-
-    ```java title="my_heap.java"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "C++"
-
-    ```cpp title="my_heap.cpp"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "Python"
-
-    ```python title="my_heap.py"
-    [class]{MaxHeap}-[func]{__init__}
-    ```
-
-=== "Go"
-
-    ```go title="my_heap.go"
-    [class]{maxHeap}-[func]{newMaxHeap}
-    ```
-
-=== "JavaScript"
-
-    ```javascript title="my_heap.js"
-    [class]{MaxHeap}-[func]{constructor}
-    ```
-
-=== "TypeScript"
-
-    ```typescript title="my_heap.ts"
-    [class]{MaxHeap}-[func]{constructor}
-    ```
-
-=== "C"
-
-    ```c title="my_heap.c"
-    [class]{maxHeap}-[func]{newMaxHeap}
-    ```
-
-=== "C#"
-
-    ```csharp title="my_heap.cs"
-    [class]{MaxHeap}-[func]{MaxHeap}
-    ```
-
-=== "Swift"
-
-    ```swift title="my_heap.swift"
-    [class]{MaxHeap}-[func]{init}
-    ```
-
-=== "Zig"
-
-    ```zig title="my_heap.zig"
-    [class]{MaxHeap}-[func]{init}
-    ```
-
-那么，第二种建堆方法的时间复杂度时多少呢？我们来做一下简单推算。
-
-- 完全二叉树中，设结点总数为 $n$ ，则叶结点数量为 $(n + 1) / 2$ ，其中 $/$ 为向下整除。因此在排除叶结点后，需要堆化结点数量为 $(n - 1)/2$ ，即为 $O(n)$ ；
-- 从顶至底堆化中，每个结点最多堆化至叶结点，因此最大迭代次数为二叉树高度 $O(\log n)$ ；
-
-将上述两者相乘，可得时间复杂度为 $O(n \log n)$ 。然而，该估算结果仍不够准确，因为我们没有考虑到 **二叉树底层结点远多于顶层结点** 的性质。
-
-下面我们来尝试展开计算。为了减小计算难度，我们假设树是一个「完美二叉树」，该假设不会影响计算结果的正确性。设二叉树（即堆）结点数量为 $n$ ，树高度为 $h$ 。上文提到，**结点堆化最大迭代次数等于该结点到叶结点的距离，而这正是“结点高度”**。因此，我们将各层的“结点数量 $\times$ 结点高度”求和，即可得到所有结点的堆化的迭代次数总和。
-
-$$
-T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \cdots + 2^{(h-1)}\times1
-$$
-
-![heapify_count](heap.assets/heapify_count.png)
-
-化简上式需要借助中学的数列知识，先对 $T(h)$ 乘以 $2$ ，易得
-
-$$
-\begin{aligned}
-T(h) & = 2^0h + 2^1(h-1) + 2^2(h-2) + \cdots + 2^{h-1}\times1 \newline
-2 T(h) & = 2^1h + 2^2(h-1) + 2^3(h-2) + \cdots + 2^{h}\times1 \newline
-\end{aligned}
-$$
-
-**使用错位相减法**，令下式 $2 T(h)$ 减去上式 $T(h)$ ，可得
-
-$$
-2T(h) - T(h) = T(h) = -2^0h + 2^1 + 2^2 + \cdots + 2^{h-1} + 2^h
-$$
-
-观察上式，$T(h)$ 是一个等比数列，可直接使用求和公式，得到时间复杂度为
-
-$$
-\begin{aligned}
-T(h) & = 2 \frac{1 - 2^h}{1 - 2} - h \newline
-& = 2^{h+1} - h \newline
-& = O(2^h)
-\end{aligned}
-$$
-
-进一步地，高度为 $h$ 的完美二叉树的结点数量为 $n = 2^{h+1} - 1$ ，易得复杂度为 $O(2^h) = O(n)$。以上推算表明，**输入列表并建堆的时间复杂度为 $O(n)$ ，非常高效**。
 
 ## 堆常见应用
 

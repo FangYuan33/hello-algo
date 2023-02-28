@@ -1,20 +1,12 @@
----
-comments: true
----
-
-# 双向队列
+# 双向队列（Deque）
 
 对于队列，我们只能在头部删除或在尾部添加元素，而「双向队列 Deque」更加灵活，在其头部和尾部都能执行元素添加或删除操作。
 
-![deque_operations](deque.assets/deque_operations.png)
-
-<p align="center"> Fig. 双向队列的操作 </p>
+![双向队列的操作](deque.assets/deque_operations.png)
 
 ## 双向队列常用操作
 
 双向队列的常用操作见下表，方法名需根据特定语言来确定。
-
-<p align="center"> Table. 双向队列的常用操作 </p>
 
 <div class="center-table" markdown>
 
@@ -306,7 +298,7 @@ comments: true
 我们将双向链表的头结点和尾结点分别看作双向队列的队首和队尾，并且实现在两端都能添加与删除结点。
 
 === "LinkedListDeque"
-    ![linkedlist_deque](deque.assets/linkedlist_deque.png)
+    ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque.png)
 
 === "pushLast()"
     ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_push_last.png)
@@ -397,7 +389,7 @@ comments: true
 与基于数组实现队列类似，我们也可以使用环形数组来实现双向队列。在实现队列的基础上，增加实现“队首入队”和“队尾出队”方法即可。
 
 === "ArrayDeque"
-    ![array_deque](deque.assets/array_deque.png)
+    ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque.png)
 
 === "pushLast()"
     ![array_deque_push_last](deque.assets/array_deque_push_last.png)

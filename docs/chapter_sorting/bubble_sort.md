@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 冒泡排序
 
 「冒泡排序 Bubble Sort」是一种最基础的排序算法，非常适合作为第一个学习的排序算法。顾名思义，「冒泡」是该算法的核心操作。
@@ -15,7 +11,7 @@ comments: true
 完成此次冒泡操作后，**数组最大元素已在正确位置，接下来只需排序剩余 $n - 1$ 个元素**。
 
 === "<1>"
-    ![bubble_operation_step1](bubble_sort.assets/bubble_operation_step1.png)
+    ![冒泡操作步骤](bubble_sort.assets/bubble_operation_step1.png)
 
 === "<2>"
     ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png)
@@ -35,17 +31,13 @@ comments: true
 === "<7>"
     ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png)
 
-<p align="center"> Fig. 冒泡操作 </p>
-
 ## 算法流程
 
 1. 设数组长度为 $n$ ，完成第一轮「冒泡」后，数组最大元素已在正确位置，接下来只需排序剩余 $n - 1$ 个元素。
 2. 同理，对剩余 $n - 1$ 个元素执行「冒泡」，可将第二大元素交换至正确位置，因而待排序元素只剩 $n - 2$ 个。
 3. 以此类推…… **循环 $n - 1$ 轮「冒泡」，即可完成整个数组的排序**。
 
-![bubble_sort](bubble_sort.assets/bubble_sort.png)
-
-<p align="center"> Fig. 冒泡排序流程 </p>
+![冒泡排序流程](bubble_sort.assets/bubble_sort_overview.png)
 
 === "Java"
 

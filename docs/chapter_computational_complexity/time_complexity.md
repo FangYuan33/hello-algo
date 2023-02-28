@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 时间复杂度
 
 ## 统计算法运行时间
@@ -369,9 +365,7 @@ $$
 
     ```
 
-![time_complexity_first_example](time_complexity.assets/time_complexity_first_example.png)
-
-<p align="center"> Fig. 算法 A, B, C 的时间增长趋势 </p>
+![算法 A, B, C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
 
 相比直接统计算法运行时间，时间复杂度分析的做法有什么好处呢？以及有什么不足？
 
@@ -379,7 +373,7 @@ $$
 
 **时间复杂度的推算方法更加简便**。在时间复杂度分析中，我们可以将统计「计算操作的运行时间」简化为统计「计算操作的数量」，这是因为，无论是运行平台还是计算操作类型，都与算法运行时间的增长趋势无关。因而，我们可以简单地将所有计算操作的执行时间统一看作是相同的“单位时间”，这样的简化做法大大降低了估算难度。
 
-**时间复杂度也存在一定的局限性**。比如，虽然算法 `A` 和 `C` 的时间复杂度相同，但是实际的运行时间有非常大的差别。再比如，虽然算法 `B` 比 `C` 的时间复杂度要更高，但在输入数据大小 $n$ 比较小时，算法 `B` 是要明显优于算法 `C` 的。对于以上情况，我们很难仅凭时间复杂度来判定算法效率高低。然而，即使存在这些问题，计算复杂度仍然是评判算法效率的最有效且常用的方法。
+**时间复杂度也存在一定的局限性**。比如，虽然算法 `A` 和 `C` 的时间复杂度相同，但是实际的运行时间有非常大的差别。再比如，虽然算法 `B` 比 `C` 的时间复杂度要更高，但在输入数据大小 $n$ 比较小时，算法 `B` 是要明显优于算法 `C` 的。对于以上情况，我们很难仅凭时间复杂度来判定算法效率高低。然而，即使存在这些问题，复杂度分析仍然是评判算法效率的最有效且常用的方法。
 
 ## 函数渐近上界
 
@@ -538,9 +532,7 @@ $T(n)$ 是个一次函数，说明时间增长趋势是线性的，因此易得�
     T(n) = O(f(n))
     $$
 
-![asymptotic_upper_bound](time_complexity.assets/asymptotic_upper_bound.png)
-
-<p align="center"> Fig. 函数的渐近上界 </p>
+![函数的渐近上界](time_complexity.assets/asymptotic_upper_bound.png)
 
 本质上看，计算渐近上界就是在找一个函数 $f(n)$ ，**使得在 $n$ 趋向于无穷大时，$T(n)$ 和 $f(n)$ 处于相同的增长级别（仅相差一个常数项 $c$ 的倍数）**。
 
@@ -778,9 +770,7 @@ O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!) \newline
 \end{aligned}
 $$
 
-![time_complexity_common_types](time_complexity.assets/time_complexity_common_types.png)
-
-<p align="center"> Fig. 时间复杂度的常见类型 </p>
+![时间复杂度的常见类型](time_complexity.assets/time_complexity_common_types.png)
 
 !!! tip
 
@@ -1046,9 +1036,7 @@ $$
     [class]{}-[func]{quadratic}
     ```
 
-![time_complexity_constant_linear_quadratic](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
-
-<p align="center"> Fig. 常数阶、线性阶、平方阶的时间复杂度 </p>
+![常数阶、线性阶、平方阶的时间复杂度](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
 
 以「冒泡排序」为例，外层循环 $n - 1$ 次，内层循环 $n-1, n-2, \cdots, 2, 1$ 次，平均为 $\frac{n}{2}$ 次，因此时间复杂度为 $O(n^2)$ 。
 
@@ -1184,9 +1172,7 @@ $$
     [class]{}-[func]{exponential}
     ```
 
-![time_complexity_exponential](time_complexity.assets/time_complexity_exponential.png)
-
-<p align="center"> Fig. 指数阶的时间复杂度 </p>
+![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
 
 在实际算法中，指数阶常出现于递归函数。例如以下代码，不断地一分为二，分裂 $n$ 次后停止。
 
@@ -1318,9 +1304,7 @@ $$
     [class]{}-[func]{logarithmic}
     ```
 
-![time_complexity_logarithmic](time_complexity.assets/time_complexity_logarithmic.png)
-
-<p align="center"> Fig. 对数阶的时间复杂度 </p>
+![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
 
 与指数阶类似，对数阶也常出现于递归函数。以下代码形成了一个高度为 $\log_2 n$ 的递归树。
 
@@ -1450,9 +1434,7 @@ $$
     [class]{}-[func]{linearLogRecur}
     ```
 
-![time_complexity_logarithmic_linear](time_complexity.assets/time_complexity_logarithmic_linear.png)
-
-<p align="center"> Fig. 线性对数阶的时间复杂度 </p>
+![线性对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic_linear.png)
 
 ### 阶乘阶 $O(n!)$
 
@@ -1524,9 +1506,7 @@ $$
     [class]{}-[func]{factorialRecur}
     ```
 
-![time_complexity_factorial](time_complexity.assets/time_complexity_factorial.png)
-
-<p align="center"> Fig. 阶乘阶的时间复杂度 </p>
+![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.png)
 
 ## 最差、最佳、平均时间复杂度
 
@@ -1548,30 +1528,9 @@ $$
 === "C++"
 
     ```cpp title="worst_best_time_complexity.cpp"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    vector<int> randomNumbers(int n) {
-        vector<int> nums(n);
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-        }
-        // 使用系统时间生成随机种子
-        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-        // 随机打乱数组元素
-        shuffle(nums.begin(), nums.end(), default_random_engine(seed));
-        return nums;
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    int findOne(vector<int>& nums) {
-        for (int i = 0; i < nums.size(); i++) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (nums[i] == 1)
-                return i;
-        }
-        return -1;
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "Python"
@@ -1585,129 +1544,33 @@ $$
 === "Go"
 
     ```go title="worst_best_time_complexity.go"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    func randomNumbers(n int) []int {
-        nums := make([]int, n)
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for i := 0; i < n; i++ {
-            nums[i] = i + 1
-        }
-        // 随机打乱数组元素
-        rand.Shuffle(len(nums), func(i, j int) {
-            nums[i], nums[j] = nums[j], nums[i]
-        })
-        return nums
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    func findOne(nums []int) int {
-        for i := 0; i < len(nums); i++ {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if nums[i] == 1 {
-                return i
-            }
-        }
-        return -1
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "JavaScript"
 
     ```javascript title="worst_best_time_complexity.js"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    function randomNumbers(n) {
-        const nums = Array(n);
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (let i = 0; i < n; i++) {
-            nums[i] = i + 1;
-        }
-        // 随机打乱数组元素
-        for (let i = 0; i < n; i++) {
-            const r = Math.floor(Math.random() * (i + 1));
-            const temp = nums[i];
-            nums[i] = nums[r];
-            nums[r] = temp;
-        }
-        return nums;
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    function findOne(nums) {
-        for (let i = 0; i < nums.length; i++) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (nums[i] === 1) {
-                return i;
-            }
-        }
-        return -1;
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "TypeScript"
 
     ```typescript title="worst_best_time_complexity.ts"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    function randomNumbers(n: number): number[] {
-        const nums = Array(n);
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (let i = 0; i < n; i++) {
-            nums[i] = i + 1;
-        }
-        // 随机打乱数组元素
-        for (let i = 0; i < n; i++) {
-            const r = Math.floor(Math.random() * (i + 1));
-            const temp = nums[i];
-            nums[i] = nums[r];
-            nums[r] = temp;
-        }
-        return nums;
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    function findOne(nums: number[]): number {
-        for (let i = 0; i < nums.length; i++) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (nums[i] === 1) {
-                return i;
-            }
-        }
-        return -1;
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "C"
 
     ```c title="worst_best_time_complexity.c"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    int *randomNumbers(int n) {
-        // 分配堆区内存（创建一维可变长数组：数组中元素数量为n，元素类型为int）
-        int *nums = (int *)malloc(n * sizeof(int));
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-        }
-        // 随机打乱数组元素 
-        for (int i = n - 1; i > 0; i--) {
-            int j = rand() % (i + 1);
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp; 
-        }
-        return nums;
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    int findOne(int *nums, int n) {
-        for (int i = 0; i < n; i++) {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if (nums[i] == 1) return i;
-        }
-        return -1;
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "C#"
@@ -1721,26 +1584,9 @@ $$
 === "Swift"
 
     ```swift title="worst_best_time_complexity.swift"
-    /* 生成一个数组，元素为 { 1, 2, ..., n }，顺序被打乱 */
-    func randomNumbers(n: Int) -> [Int] {
-        // 生成数组 nums = { 1, 2, 3, ..., n }
-        var nums = Array(1 ... n)
-        // 随机打乱数组元素
-        nums.shuffle()
-        return nums
-    }
+    [class]{}-[func]{randomNumbers}
 
-    /* 查找数组 nums 中数字 1 所在索引 */
-    func findOne(nums: [Int]) -> Int {
-        for i in nums.indices {
-            // 当元素 1 在数组头部时，达到最佳时间复杂度 O(1)
-            // 当元素 1 在数组尾部时，达到最差时间复杂度 O(n)
-            if nums[i] == 1 {
-                return i
-            }
-        }
-        return -1
-    }
+    [class]{}-[func]{findOne}
     ```
 
 === "Zig"

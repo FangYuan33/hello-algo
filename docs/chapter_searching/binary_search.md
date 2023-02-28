@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 二分查找
 
 「二分查找 Binary Search」利用数据的有序性，通过每轮缩小一半搜索区间来查找目标元素。
@@ -29,7 +25,7 @@ $$
 首先，我们先采用“双闭区间”的表示，在数组 `nums` 中查找目标元素 `target` 的对应索引。
 
 === "<1>"
-    ![binary_search_step1](binary_search.assets/binary_search_step1.png)
+    ![二分查找步骤](binary_search.assets/binary_search_step1.png)
 
 === "<2>"
     ![binary_search_step2](binary_search.assets/binary_search_step2.png)

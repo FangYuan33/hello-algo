@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 算法无处不在
 
 听到“算法”这个词，我们一般会联想到数学。但实际上，大多数算法并不包含复杂的数学，而更像是在考察基本逻辑，而这些逻辑在我们日常生活中处处可见。
@@ -19,7 +15,7 @@ comments: true
 3. 循环执行步骤 1-2 ，直到找到拼音首字母为 $r$ 的页码时终止。
 
 === "<1>"
-    ![look_up_dictionary_step_1](algorithms_are_everywhere.assets/look_up_dictionary_step_1.png)
+    ![查字典步骤](algorithms_are_everywhere.assets/look_up_dictionary_step_1.png)
 
 === "<2>"
     ![look_up_dictionary_step_2](algorithms_are_everywhere.assets/look_up_dictionary_step_2.png)

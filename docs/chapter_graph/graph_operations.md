@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 图基础操作
 
 图的基础操作分为对「边」的操作和对「顶点」的操作，在「邻接矩阵」和「邻接表」这两种表示下的实现方式不同。
@@ -16,7 +12,7 @@ comments: true
 - **初始化**：传入 $n$ 个顶点，初始化长度为 $n$ 的顶点列表 `vertices` ，使用 $O(n)$ 时间；初始化 $n \times n$ 大小的邻接矩阵 `adjMat` ，使用 $O(n^2)$ 时间。
 
 === "初始化邻接矩阵"
-    ![adjacency_matrix_initialization](graph_operations.assets/adjacency_matrix_initialization.png)
+    ![邻接矩阵的初始化、增删边、增删顶点](graph_operations.assets/adjacency_matrix_initialization.png)
 
 === "添加边"
     ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_add_edge.png)
@@ -103,7 +99,7 @@ comments: true
 - **初始化**：需要在邻接表中建立 $n$ 个结点和 $2m$ 条边，使用 $O(n + m)$ 时间。
 
 === "初始化邻接表"
-    ![adjacency_list_initialization](graph_operations.assets/adjacency_list_initialization.png)
+    ![邻接表的初始化、增删边、增删顶点](graph_operations.assets/adjacency_list_initialization.png)
 
 === "添加边"
     ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_add_edge.png)

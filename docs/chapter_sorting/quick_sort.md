@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 快速排序
 
 「快速排序 Quick Sort」是一种基于“分治思想”的排序算法，速度很快、应用很广。
@@ -15,7 +11,7 @@ comments: true
 「哨兵划分」执行完毕后，原数组被划分成两个部分，即 **左子数组** 和 **右子数组**，且满足 **左子数组任意元素 < 基准数 < 右子数组任意元素**。因此，接下来我们只需要排序两个子数组即可。
 
 === "<1>"
-    ![pivot_division_step1](quick_sort.assets/pivot_division_step1.png)
+    ![哨兵划分步骤](quick_sort.assets/pivot_division_step1.png)
 
 === "<2>"
     ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png)
@@ -41,7 +37,9 @@ comments: true
 === "<9>"
     ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png)
 
-<p align="center"> Fig. 哨兵划分 </p>
+!!! note "快速排序的分治思想"
+
+    哨兵划分的实质是将 **一个长数组的排序问题** 简化为 **两个短数组的排序问题**。
 
 === "Java"
 
@@ -117,10 +115,6 @@ comments: true
     [class]{QuickSort}-[func]{partition}
     ```
 
-!!! note "快速排序的分治思想"
-
-    哨兵划分的实质是将 **一个长数组的排序问题** 简化为 **两个短数组的排序问题**。
-
 ## 算法流程
 
 1. 首先，对数组执行一次「哨兵划分」，得到待排序的 **左子数组** 和 **右子数组**；
@@ -129,9 +123,7 @@ comments: true
 
 观察发现，快速排序和「二分查找」的原理类似，都是以对数阶的时间复杂度来缩小处理区间。
 
-![quick_sort](quick_sort.assets/quick_sort.png)
-
-<p align="center"> Fig. 快速排序流程 </p>
+![快速排序流程](quick_sort.assets/quick_sort_overview.png)
 
 === "Java"
 

@@ -1,8 +1,4 @@
----
-comments: true
----
-
-# 链表
+# 链表（Linked List）
 
 !!! note "引言"
 
@@ -12,9 +8,7 @@ comments: true
 
 链表的「结点 Node」包含两项数据，一是结点「值 Value」，二是指向下一结点的「指针 Pointer」（或称「引用 Reference」）。
 
-![linkedlist_definition](linked_list.assets/linkedlist_definition.png)
-
-<p align="center"> Fig. 链表定义与存储方式 </p>
+![链表定义与存储方式](linked_list.assets/linkedlist_definition.png)
 
 === "Java"
 
@@ -69,7 +63,7 @@ comments: true
 === "JavaScript"
 
     ```javascript title=""
-    /* 链表结点结构体 */
+    /* 链表结点类 */
     class ListNode {
         val;
         next;
@@ -83,7 +77,7 @@ comments: true
 === "TypeScript"
 
     ```typescript title=""
-    /* 链表结点结构体 */
+    /* 链表结点类 */
     class ListNode {
         val: number;
         next: ListNode | null;
@@ -97,7 +91,11 @@ comments: true
 === "C"
 
     ```c title=""
-
+    /* 链表结点结构体 */
+    struct ListNode {
+        int val;         // 结点值
+        ListNode *next;  // 指向下一结点的指针（引用）
+    };
     ```
 
 === "C#"
@@ -316,89 +314,131 @@ comments: true
 
 ## 链表优点
 
-**在链表中，插入与删除结点的操作效率高**。例如，如果想在链表中间的两个结点 `A` , `B` 之间插入一个新结点 `P` ，我们只需要改变两个结点指针即可，时间复杂度为 $O(1)$ ，相比数组的插入操作高效很多。在链表中删除某个结点也很方便，只需要改变一个结点指针即可。
+**在链表中，插入与删除结点的操作效率高**。比如，如果我们想在链表中间的两个结点 `A` , `B` 之间插入一个新结点 `P` ，我们只需要改变两个结点指针即可，时间复杂度为 $O(1)$ ，相比数组的插入操作高效很多。
 
-![linkedlist_insert_remove_node](linked_list.assets/linkedlist_insert_remove_node.png)
-
-<p align="center"> Fig. 在链表中插入与删除结点 </p>
+![链表插入结点](linked_list.assets/linkedlist_insert_node.png)
 
 === "Java"
 
     ```java title="linked_list.java"
     [class]{linked_list}-[func]{insert}
-
-    [class]{linked_list}-[func]{remove}
     ```
 
 === "C++"
 
     ```cpp title="linked_list.cpp"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "Python"
 
     ```python title="linked_list.py"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "Go"
 
     ```go title="linked_list.go"
     [class]{}-[func]{insertNode}
-
-    [class]{}-[func]{removeNode}
     ```
 
 === "JavaScript"
 
     ```javascript title="linked_list.js"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "TypeScript"
 
     ```typescript title="linked_list.ts"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "C"
 
     ```c title="linked_list.c"
     [class]{}-[func]{insertNode}
-
-    [class]{}-[func]{removeNode}
     ```
 
 === "C#"
 
     ```csharp title="linked_list.cs"
     [class]{linked_list}-[func]{insert}
-
-    [class]{linked_list}-[func]{remove}
     ```
 
 === "Swift"
 
     ```swift title="linked_list.swift"
     [class]{}-[func]{insert}
-
-    [class]{}-[func]{remove}
     ```
 
 === "Zig"
 
     ```zig title="linked_list.zig"
     [class]{}-[func]{insert}
+    ```
 
+在链表中删除结点也很方便，只需要改变一个结点指针即可。如下图所示，虽然在完成删除后结点 `P` 仍然指向 `n2` ，但实际上 `P` 已经不属于此链表了，因为遍历此链表是无法访问到 `P` 的。
+
+![链表删除结点](linked_list.assets/linkedlist_remove_node.png)
+
+=== "Java"
+
+    ```java title="linked_list.java"
+    [class]{linked_list}-[func]{remove}
+    ```
+
+=== "C++"
+
+    ```cpp title="linked_list.cpp"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Python"
+
+    ```python title="linked_list.py"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Go"
+
+    ```go title="linked_list.go"
+    [class]{}-[func]{removeNode}
+    ```
+
+=== "JavaScript"
+
+    ```javascript title="linked_list.js"
+    [class]{}-[func]{remove}
+    ```
+
+=== "TypeScript"
+
+    ```typescript title="linked_list.ts"
+    [class]{}-[func]{remove}
+    ```
+
+=== "C"
+
+    ```c title="linked_list.c"
+    [class]{}-[func]{removeNode}
+    ```
+
+=== "C#"
+
+    ```csharp title="linked_list.cs"
+    [class]{linked_list}-[func]{remove}
+    ```
+
+=== "Swift"
+
+    ```swift title="linked_list.swift"
+    [class]{}-[func]{remove}
+    ```
+
+=== "Zig"
+
+    ```zig title="linked_list.zig"
     [class]{}-[func]{remove}
     ```
 
@@ -555,7 +595,7 @@ comments: true
 === "C++"
 
     ```cpp title=""
-    /* 链表结点结构体 */
+    /* 双向链表结点结构体 */
     struct ListNode {
         int val;         // 结点值
         ListNode *next;  // 指向后继结点的指针（引用）
@@ -682,6 +722,4 @@ comments: true
     }
     ```
 
-![linkedlist_common_types](linked_list.assets/linkedlist_common_types.png)
-
-<p align="center"> Fig. 常见链表类型 </p>
+![常见链表种类](linked_list.assets/linkedlist_common_types.png)

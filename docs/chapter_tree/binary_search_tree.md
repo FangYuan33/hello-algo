@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 二叉搜索树
 
 「二叉搜索树 Binary Search Tree」满足以下条件：
@@ -9,7 +5,7 @@ comments: true
 1. 对于根结点，左子树中所有结点的值 $<$ 根结点的值 $<$ 右子树中所有结点的值；
 2. 任意结点的左子树和右子树也是二叉搜索树，即也满足条件 `1.` ；
 
-![binary_search_tree](binary_search_tree.assets/binary_search_tree.png)
+![二叉搜索树](binary_search_tree.assets/binary_search_tree.png)
 
 ## 二叉搜索树的操作
 
@@ -22,16 +18,16 @@ comments: true
 - 若 `cur.val = num` ，说明找到目标结点，跳出循环并返回该结点即可；
 
 === "<1>"
-    ![bst_search_1](binary_search_tree.assets/bst_search_1.png)
+    ![查找结点步骤](binary_search_tree.assets/bst_search_step1.png)
 
 === "<2>"
-    ![bst_search_2](binary_search_tree.assets/bst_search_2.png)
+    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.png)
 
 === "<3>"
-    ![bst_search_3](binary_search_tree.assets/bst_search_3.png)
+    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.png)
 
 === "<4>"
-    ![bst_search_4](binary_search_tree.assets/bst_search_4.png)
+    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.png)
 
 二叉搜索树的查找操作和二分查找算法如出一辙，也是在每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 $O(\log n)$ 时间。
 
@@ -104,7 +100,7 @@ comments: true
 
 二叉搜索树不允许存在重复结点，否则将会违背其定义。因此若待插入结点在树中已经存在，则不执行插入，直接返回即可。
 
-![bst_insert](binary_search_tree.assets/bst_insert.png)
+![在二叉搜索树中插入结点](binary_search_tree.assets/bst_insert.png)
 
 === "Java"
 
@@ -176,11 +172,11 @@ comments: true
 
 **当待删除结点的子结点数量 $= 0$ 时**，表明待删除结点是叶结点，直接删除即可。
 
-![bst_remove_case1](binary_search_tree.assets/bst_remove_case1.png)
+![在二叉搜索树中删除结点（度为 0）](binary_search_tree.assets/bst_remove_case1.png)
 
 **当待删除结点的子结点数量 $= 1$ 时**，将待删除结点替换为其子结点即可。
 
-![bst_remove_case2](binary_search_tree.assets/bst_remove_case2.png)
+![在二叉搜索树中删除结点（度为 1）](binary_search_tree.assets/bst_remove_case2.png)
 
 **当待删除结点的子结点数量 $= 2$ 时**，删除操作分为三步：
 
@@ -189,16 +185,16 @@ comments: true
 3. 使用 `nex` 替换待删除结点；
 
 === "<1>"
-    ![bst_remove_case3_1](binary_search_tree.assets/bst_remove_case3_1.png)
+    ![删除结点（度为 2）步骤](binary_search_tree.assets/bst_remove_case3_step1.png)
 
 === "<2>"
-    ![bst_remove_case3_2](binary_search_tree.assets/bst_remove_case3_2.png)
+    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.png)
 
 === "<3>"
-    ![bst_remove_case3_3](binary_search_tree.assets/bst_remove_case3_3.png)
+    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.png)
 
 === "<4>"
-    ![bst_remove_case3_4](binary_search_tree.assets/bst_remove_case3_4.png)
+    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.png)
 
 删除结点操作也使用 $O(\log n)$ 时间，其中查找待删除结点 $O(\log n)$ ，获取中序遍历后继结点 $O(\log n)$ 。
 
@@ -288,7 +284,7 @@ comments: true
 
 借助中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，而无需额外排序，非常高效。
 
-![bst_inorder_traversal](binary_search_tree.assets/bst_inorder_traversal.png)
+![二叉搜索树的中序遍历序列](binary_search_tree.assets/bst_inorder_traversal.png)
 
 ## 二叉搜索树的效率
 
@@ -329,7 +325,7 @@ comments: true
 
     在实际应用中，如何保持二叉搜索树的平衡，也是一个需要重要考虑的问题。
 
-![bst_degradation](binary_search_tree.assets/bst_degradation.png)
+![二叉搜索树的平衡与退化](binary_search_tree.assets/bst_degradation.png)
 
 ## 二叉搜索树常见应用
 

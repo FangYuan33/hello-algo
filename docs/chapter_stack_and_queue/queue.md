@@ -1,22 +1,14 @@
----
-comments: true
----
-
-# 队列
+# 队列（Queue）
 
 「队列 Queue」是一种遵循「先入先出 first in, first out」数据操作规则的线性数据结构。顾名思义，队列模拟的是排队现象，即外面的人不断加入队列尾部，而处于队列头部的人不断地离开。
 
 我们将队列头部称为「队首」，队列尾部称为「队尾」，将把元素加入队尾的操作称为「入队」，删除队首元素的操作称为「出队」。
 
-![queue_operations](queue.assets/queue_operations.png)
-
-<p align="center"> Fig. 队列的先入先出特性 </p>
+![队列的先入先出规则](queue.assets/queue_operations.png)
 
 ## 队列常用操作
 
 队列的常用操作见下表，方法名需根据特定语言来确定。
-
-<p align="center"> Table. 队列的常用操作 </p>
 
 <div class="center-table" markdown>
 
@@ -271,7 +263,7 @@ comments: true
 我们将链表的「头结点」和「尾结点」分别看作是队首和队尾，并规定队尾只可添加结点，队首只可删除结点。
 
 === "LinkedListQueue"
-    ![linkedlist_queue](queue.assets/linkedlist_queue.png)
+    ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue.png)
 
 === "push()"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_push.png)
@@ -355,7 +347,7 @@ comments: true
 观察发现，入队与出队操作都仅需单次操作即可完成，时间复杂度皆为 $O(1)$ 。
 
 === "ArrayQueue"
-    ![array_queue](queue.assets/array_queue.png)
+    ![基于数组实现队列的入队出队操作](queue.assets/array_queue.png)
 
 === "push()"
     ![array_queue_push](queue.assets/array_queue_push.png)

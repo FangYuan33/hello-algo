@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 归并排序
 
 「归并排序 Merge Sort」是算法中“分治思想”的典型体现，其有「划分」和「合并」两个阶段：
@@ -9,9 +5,7 @@ comments: true
 1. **划分阶段**：通过递归不断 **将数组从中点位置划分开**，将长数组的排序问题转化为短数组的排序问题；
 2. **合并阶段**：划分到子数组长度为 1 时，开始向上合并，不断将 **左、右两个短排序数组** 合并为 **一个长排序数组**，直至合并至原数组时完成排序；
 
-![merge_sort_preview](merge_sort.assets/merge_sort_preview.png)
-
-<p align="center"> Fig. 归并排序两阶段：划分与合并 </p>
+![归并排序的划分与合并阶段](merge_sort.assets/merge_sort_overview.png)
 
 ## 算法流程
 
@@ -25,7 +19,7 @@ comments: true
 需要注意，由于从长度为 1 的子数组开始合并，所以 **每个子数组都是有序的**。因此，合并任务本质是要 **将两个有序子数组合并为一个有序数组**。
 
 === "<1>"
-    ![merge_sort_step1](merge_sort.assets/merge_sort_step1.png)
+    ![归并排序步骤](merge_sort.assets/merge_sort_step1.png)
 
 === "<2>"
     ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png)

@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 数据与内存
 
 ## 基本数据类型
@@ -47,6 +43,10 @@ comments: true
 
 ### 浮点数表示方式 *
 
+!!! note
+
+    在本书中，标题后的 `*` 符号代表选读章节，如果你觉得理解困难，建议先跳过，等学完必读章节后续再单独攻克。 
+
 细心的你可能会疑惑： int 和 float 长度相同，都是 4 bytes ，**但为什么 float 的取值范围远大于 int** ？按说 float 需要表示小数，取值范围应该变小才对。
 
 其实，这是因为浮点数 float 采用了不同的表示方式。IEEE 754 标准规定，32-bit 长度的 float 由以下部分构成：
@@ -76,7 +76,7 @@ $$
 \end{aligned}
 $$
 
-![IEEE-754-float](data_and_memory.assets/IEEE-754-float.png)
+![IEEE 754 标准下的 float 表示方式](data_and_memory.assets/ieee_754_float.png)
 
 以上图为例，$\mathrm{S} = 0$ ， $\mathrm{E} = 124$ ，$\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$ ，易得
 
@@ -102,7 +102,6 @@ $$
 - 最小正次正规数为 $2^{-126} \times 2^{-23} \approx 1.4 \times 10^{-45}$ ；
 
 双精度 double 也采用类似 float 的表示方法，在此不再赘述。
-
 
 ### 基本数据类型与数据结构的关系
 
@@ -207,8 +206,6 @@ $$
 
 **系统通过「内存地址 Memory Location」来访问目标内存位置的数据**。计算机根据特定规则给表格中每个单元格编号，保证每块内存空间都有独立的内存地址。自此，程序便通过这些地址，访问内存中的数据。
 
-![computer_memory_location](data_and_memory.assets/computer_memory_location.png)
-
-<p align="center"> Fig. 内存条、内存空间、内存地址 </p>
+![内存条、内存空间、内存地址](data_and_memory.assets/computer_memory_location.png)
 
 **内存资源是设计数据结构与算法的重要考虑因素**。内存是所有程序的公共资源，当内存被某程序占用时，不能被其它程序同时使用。我们需要根据剩余内存资源的情况来设计算法。例如，若剩余内存空间有限，则要求算法占用的峰值内存不能超过系统剩余内存；若运行的程序很多、缺少大块连续的内存空间，则要求选取的数据结构必须能够存储在离散的内存空间内。

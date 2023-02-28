@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 线性查找
 
 「线性查找 Linear Search」是一种最基础的查找方法，其从数据结构的一端开始，依次访问每个元素，直到另一端后停止。
@@ -10,7 +6,7 @@ comments: true
 
 线性查找实质上就是遍历数据结构 + 判断条件。比如，我们想要在数组 `nums` 中查找目标元素 `target` 的对应索引，那么可以在数组中进行线性查找。
 
-![linear_search](linear_search.assets/linear_search.png)
+![在数组中线性查找元素](linear_search.assets/linear_search.png)
 
 === "Java"
 
