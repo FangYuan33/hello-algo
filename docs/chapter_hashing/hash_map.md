@@ -1,4 +1,4 @@
-# 哈希表（Hash Map）
+# 哈希表
 
 哈希表通过建立「键 key」和「值 value」之间的映射，实现高效的元素查找。具体地，输入一个 key ，在哈希表中查询并获取 value ，时间复杂度为 $O(1)$ 。
 
@@ -348,15 +348,18 @@
     ```csharp title="hash_map.cs"
     /* 遍历哈希表 */
     // 遍历键值对 Key->Value
-    foreach (var kv in map) {
+    foreach (var kv in map)
+    {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
     // 单独遍历键 key
-    foreach (int key in map.Keys) {
+    foreach (int key in map.Keys)
+    {
         Console.WriteLine(key);
     }
     // 单独遍历值 value
-    foreach (String val in map.Values) {
+    foreach (String val in map.Values)
+    {
         Console.WriteLine(val);
     }
     ```

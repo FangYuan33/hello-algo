@@ -1,4 +1,4 @@
-# 双向队列（Deque）
+# 双向队列
 
 对于队列，我们只能在头部删除或在尾部添加元素，而「双向队列 Deque」更加灵活，在其头部和尾部都能执行元素添加或删除操作。
 
@@ -325,19 +325,23 @@
 === "C++"
 
     ```cpp title="linkedlist_deque.cpp"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "Python"
 
     ```python title="linkedlist_deque.py"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "Go"
 
     ```go title="linkedlist_deque.go"
-
+    [class]{linkedListDeque}-[func]{}
     ```
 
 === "JavaScript"
@@ -359,7 +363,9 @@
 === "C"
 
     ```c title="linkedlist_deque.c"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 === "C#"
@@ -381,7 +387,9 @@
 === "Zig"
 
     ```zig title="linkedlist_deque.zig"
+    [class]{ListNode}-[func]{}
 
+    [class]{LinkedListDeque}-[func]{}
     ```
 
 ### 基于数组的实现
@@ -414,43 +422,43 @@
 === "C++"
 
     ```cpp title="array_deque.cpp"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "Python"
 
     ```python title="array_deque.py"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "Go"
 
     ```go title="array_deque.go"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "JavaScript"
 
     ```js title="array_deque.js"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "TypeScript"
 
     ```typescript title="array_deque.ts"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "C"
 
     ```c title="array_deque.c"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "C#"
 
     ```csharp title="array_deque.cs"
-
+    [class]{ArrayDeque}-[func]{}
     ```
 
 === "Swift"
@@ -462,5 +470,5 @@
 === "Zig"
 
     ```zig title="array_deque.zig"
-
+    [class]{ArrayDeque}-[func]{}
     ```
